@@ -1,0 +1,9 @@
+Ubuntu14.04使用pip install pyaudio安装报错：src/_portaudiomodule.c:29:23: fatal error: portaudio.h: No such file or directory解决办法
+在使用Ubuntu14.04安装pyaudio是出现错误src/_portaudiomodule.c:29:23: fatal error: portaudio.h: No such file or directory
+
+解决办法：
+
+　　sudo apt-get install python3-pyaudio
+select * from tbsi_ir m where m.i_code=ddd and m.t_Date='';
+left join tcrp_hld m where m.port_code='00101001'
+and m.t_date='fdsf'

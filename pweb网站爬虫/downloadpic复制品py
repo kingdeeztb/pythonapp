@@ -1,0 +1,47 @@
+import os
+import time
+import urllib3
+import requests
+from PIL import Image
+from io import BytesIO
+from urllib import request
+import numpy as np
+urls = ["https://cdn.sstatic.net/Sites/stackoverflow/img/logo.png"]
+
+conf = [1, 0, 0, 0]
+
+
+def solution1(url):#最快的下载
+    response = requests.get(url)
+    im = Image.open(BytesIO(response.content))
+    return im
+
+
+def solution2(url):
+    file = BytesIO(request.urlopen(url).read())
+    im = Image.open(file)
+    return im
+
+
+def solution3(url):
+    im = Image.open(urllib3.requests.urlopen(url))
+    return im
+
+
+def solution4(url):
+    im = Image.open(requests.get(url, stream=True).raw)
+    return im
+
+
+index = 0
+for f in conf:
+    index += 1
+    if f:
+        for url in urls:
+            time0 = time.time()
+            s = "solution" + index.__str__() + '(url)'
+            im = eval(s)
+            im = np.array(im)
+            print(im.shape)
+            sum_time = time.time() - time0
+            print('Cost time:', sum_time)
