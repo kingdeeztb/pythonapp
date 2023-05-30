@@ -1,9 +1,8 @@
 fn main() {
-    let a=1;
-    let b=2;
-    let c=a+b;
-    let mut s = "123";
-    s="456";
-
-    println!("Hello, world! {}",s);
+    let mut number = 1;
+    while number != 4 {
+        println!("{}", number);
+        number += 1;
+    }
+    println!("EXIT");
 }
