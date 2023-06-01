@@ -1,6 +1,7 @@
 # !/usr/bin/env python
 # coding=utf-8
 # https://blog.csdn.net/a6892255/article/details/107435504 教程原地址
+# https://zt.wps.cn/spa/2019/vip_mobile_sign_v2
 import requests
 import time
 import json
@@ -21,18 +22,18 @@ from io import StringIO
 # requests.packages.urllib3.disable_warnings(InsecurePlatformWarning)
 
 # 初始化信息
-SCKEY = '*********复制SERVER酱的SCKEY进来*************(保留引号)'
+SCKEY = 'SCT211782TBIGM9qPYeMdfUmg8s4kWwE0J'#*********复制SERVER酱的SCKEY进来*************(保留引号)
 data = {
     "wps_checkin": [
         {
-            "name": "*********请自行输入，仅用于显示*************(保留双引号)",
-            "sid": "*********复制'http://zt.wps.cn'网址Cookie中的sid进来*************(保留双引号)"
+            "name": "ztb",
+            "sid": "V02SjiNZWU62NSrVZj8Dm--RjnvybHQ00a3f039b001d516ccd"#*********复制'http://zt.wps.cn'网址Cookie中的sid进来*************(保留双引号)
         }
     ],
     "wps_invite": [
         {
-            "name": "*********请自行输入，仅用于显示*************(保留双引号)",
-            "invite_userid": "*********复制手机WPS个人信息中的用户ID进来，类似括号内容(191641526)*************(不保留双引号)",
+            "name": "ztb",#*********请自行输入，仅用于显示*************(保留双引号)
+            "invite_userid":491875533, #"*********复制手机WPS个人信息中的用户ID进来，类似括号内容(191641526)*************(不保留双引号)"
             "sid": []
         }
     ]
@@ -76,7 +77,8 @@ def main():
         bl = wps_clockin(item['sid'])
         if bl == 1:
             # 获取当前会员信息
-            member_url = 'https://zt.wps.cn/2018/clock_in/api/get_data?member=wps'
+            # member_url = 'https://zt.wps.cn/2018/clock_in/api/get_data?member=wps'
+            member_url='https://zt.wps.cn/spa/2019/vip_mobile_sign_v2'
             r1 = s.get(member_url, headers={'sid': item['sid']})
             # 累计获得会员天数
             total_add_day = re.search(
